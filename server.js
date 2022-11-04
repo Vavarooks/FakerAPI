@@ -1,4 +1,4 @@
-const faker = require('@faker-js/faker');
+const {faker} = require('@faker-js/faker');
 const express = require('express');
 const Fake = require('./classes/Fake');
 const app = express();
