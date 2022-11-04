@@ -1,13 +1,28 @@
 const {faker} = require('@faker-js/faker');
 const express = require('express');
-const Fake = require('./classes/Fake');
+const Company = require('./classes/Company');
+const FakeUser = require('./classes/FakeUser');
 const app = express();
 
-app.get("/", (req,res) =>{
+app.get("/api/user/new", (req,res) =>{
     console.log("Server Accessed");
-    res.json( new Fake());
+    // const newFake = new FakeUser;
+    res.json( new FakeUser());
+})
+
+app.get("/api/company/new", (req,res) =>{
+    console.log("Server Accessed");
+    // const newFake = new FakeUser;
+    res.json( new Company());
+})
+
+app.get("/api/user/company", (req,res) =>{
+    console.log("Server Accessed");
+    // const newFake = new FakeUser;
+    res.json({"company" : new Company(), 
+        "faker" : new FakeUser()});
 })
 
 app.listen(8008, () => {
-    console.log("Connected");
+    console.log("Running on port 8008");
 });
